@@ -22,27 +22,20 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="index.html"><span>Color</span>Mag</a> </div>
+          <a class="navbar-brand" href="{{ url('/') }}"><span>Portal</span>Berita</a> </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav custom_nav">
             <li class=""><a href="index.html">Home</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jobs</a>
+            
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategori</a>
               <ul class="dropdown-menu" role="menu">
-                <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">Jobs Home</a> </li>
-                <li><a href="#">Faq</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Article</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features</a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Standard Blog Layout</a></li>
-                <li><a href="#">Post With Comments</a></li>
-                <li><a href="#">Page:Right Sidebar</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Politik</a></li>
+                <li><a href="#">Olahraga</a></li>
               </ul>
             </li>
           
-            <li><a href="#">Archive</a></li>
+           
             <li><a href="#">Contact</a></li>
             
           </ul>
@@ -61,7 +54,7 @@
       <div class=" col-sm-12 col-md-6 col-lg-6">
         <div class="row">
           <div class="leftbar_content">
-            <h2>The New Stuff</h2>
+            <h2>Berita Terbaru</h2>
             <div class="single_stuff wow fadeInDown">
               <div class="single_stuff_img"> <a href="pages/single.html"><img src="lib/portal/images/stuff_img1.jpg" alt=""></a> </div>
               <div class="single_stuff_article">
@@ -124,13 +117,13 @@
               </ul>
             </div>
             <div class="popular_categori  wow fadeInUp">
-              <h2 class="limeblue_bg">Most Popular Categories</h2>
+              <h2 class="limeblue_bg">Kategori Populer</h2>
               <ul class="poplr_catgnva">
                 <li><a href="#">Business</a></li>
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">Life &amp; Style</a></li>
                 <li><a href="#">Games</a></li>
-                <li><a href="#">Slider</a></li>
+                <li><a href="#">Politik</a></li>
                 <li><a href="#">Sports</a></li>
               </ul>
             </div>
@@ -141,7 +134,7 @@
         <div class="row">
           <div class="rightbar_content">
             <div class="single_blog_sidebar wow fadeInUp">
-              <h2>The Featured Stuff</h2>
+              <h2>Berita Terkini</h2>
               <ul class="featured_nav">
                 <li> <a class="featured_img" href="#"><img src="lib/portal/images/featured_img1.jpg" alt=""></a>
                   <div class="featured_title"> <a class="" href="#">Sed luctus semper odio aliquam rhoncus</a> </div>
@@ -186,8 +179,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="footer_inner">
-          <p class="pull-left">Copyright &copy; 2014 ColorMag</p>
-          <p class="pull-right">Developed By WpFreeware</p>
+          <p class="pull-left">Copyright &copy; 2023</p>
+          {{-- <p class="pull-right">Developed By WpFreeware</p> --}}
         </div>
       </div>
     </div>
