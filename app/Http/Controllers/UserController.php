@@ -6,7 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
-
+use App\Notifications\RegisterMail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PostMail;
+use Notification;
 
 class UserController extends Controller
 {
@@ -36,6 +39,8 @@ class UserController extends Controller
         $users->username = $request->username;
         $users->password = bcrypt($request->password);
         $users->save();
+
+        Mail::to($request->email)->send(new PostMail());
 
         Alert::success('Sukses', 'Berhasil Register');
         return redirect()->back();

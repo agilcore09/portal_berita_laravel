@@ -41,9 +41,8 @@ class RegisterMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->from('agiljibrin009@gmail.com', 'Barrett Blair')
+            ->line('TerimaKasih Telah Mendaftar silahkan Login');
     }
 
     /**
