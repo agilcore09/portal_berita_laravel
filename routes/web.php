@@ -1,15 +1,13 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('portal');
 });
 
-Route::get('/login', function(){
-    return view('dashboard.login');
-});
+Route::get('/login', [UserController::class, 'login']);
 
-Route::get('/register', function(){
-    return view('dashboard.register');
-});
+Route::get('/register', [UserController::class, 'registerView']);
+Route::post('/register', [UserController::class, 'register']);
