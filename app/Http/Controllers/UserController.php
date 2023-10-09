@@ -41,7 +41,7 @@ class UserController extends Controller
         $users->save();
 
         Mail::to($request->email)->send(new PostMail());
-
+        // sample 
         Alert::success('Sukses', 'Berhasil Register');
         return redirect()->back();
     }
