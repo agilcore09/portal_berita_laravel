@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller
 {
 
@@ -58,5 +59,16 @@ class UserController extends Controller
             'username' => 'Email Tidak Terdaftar',
             'password' => 'Password Tidak Terdaftar'
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('login');
     }
 }
