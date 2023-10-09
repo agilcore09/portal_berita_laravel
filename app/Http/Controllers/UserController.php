@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function loginView()
+    {
+        return view('dashboard.login');
+    }
 
     public function registerView(Request $request, User $user)
     {
@@ -36,5 +42,21 @@ class UserController extends Controller
 
     public function login(Request $request,)
     {
+
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('login');
+        }
+
+        return back()->withErrors([
+            'username' => 'Email Tidak Terdaftar',
+            'password' => 'Password Tidak Terdaftar'
+        ]);
     }
 }
