@@ -40,7 +40,7 @@ class UserController extends Controller
         $users->password = bcrypt($request->password);
         $users->save();
 
-        Mail::to($request->email)->send(new PostMail());
+        Mail::to($request->email)->send(new PostMail($request->username, $request->password));
         // sample 
         Alert::success('Sukses', 'Berhasil Register');
         return redirect()->back();

@@ -40,9 +40,9 @@ class RegisterMail extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-            ->from('agiljibrin009@gmail.com', 'Barrett Blair')
-            ->line('TerimaKasih Telah Mendaftar silahkan Login');
+        // return (new MailMessage)
+        //     ->from('agiljibrin009@gmail.com', 'Barrett Blair')
+        //     ->line('TerimaKasih Telah Mendaftar silahkan Login');
     }
 
     /**

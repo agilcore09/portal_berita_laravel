@@ -16,8 +16,14 @@ class PostMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+     public $username;
+     public $password;
+
+    public function __construct($users, $pass)
     {
+        $this->username = $users;
+        $this->password = $pass;
     }
 
     /**

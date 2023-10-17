@@ -8,7 +8,11 @@
 </head>
 
 <body>
-    <p>Terima Kasih Telah REgister</p>
+    <p>Terima Kasih Telah Register</p>
+    <br>
+    <p>Username : {{ $username }}</p> 
+    <br>
+    <p>Password : {{ $password }}</p>
 </body>
 
 </html>
