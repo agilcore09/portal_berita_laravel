@@ -35,18 +35,26 @@ class BeritaController extends Controller
     {
 
         $validate = Validator::make($request->all(), [
+            'gambar' => 'required|file|image|mimes:jpeg,png,jpg|max:5000',
             'judul_berita' => 'required',
             'body_berita' => 'required'
         ]);
+
 
         if ($validate->fails()) {
             return response()->json($validate->errors(), 422);
         }
 
+        $gambar = $request->file('gambar');
+        $nama_file = time() . "_" . $gambar->getClientOriginalName();
+        $tujuan = 'data_blog';
+        $gambar->move($tujuan, $nama_file);
+
         $berita = new BeritaModel();
         $berita->judul_berita = $request->judul_berita;
         $berita->body_berita = $request->body_berita;
         $berita->slug = $request->slug;
+        $berita->gambar = $nama_file;
         $berita->save();
 
         return response()->json([

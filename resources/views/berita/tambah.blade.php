@@ -15,7 +15,7 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <form method="POST" id="proses">
+                                    <form method="POST" id="proses" enctype="multipart/form-data">
                                         @csrf
                                         @method('POST')
                                         <div class="form-group">
@@ -25,8 +25,8 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <label for="gambar" id="gambar">Gambar</label>
-                                            <input type="file" class="form-control-file" id="gambar">
+                                            <label for="gambar">Gambar</label>
+                                            <input type="file" class="form-control-file" id="gambar" name="gambar">
                                         </div>
                                         <div class="form-group">
                                             <label for="berita">Isi Berita</label>
