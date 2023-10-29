@@ -21,7 +21,7 @@
                                         <div class="form-group">
                                             <label>Judul Berita</label>
                                             <input type="text" class="form-control w-100" id="judul"
-                                                name="judul_berita" placeholder="Masukkan judul berita">
+                                                name="judul_berita" placeholder="Masukkan judul berita" autocomplete="off">
 
                                         </div>
                                         <div class="form-group">
@@ -30,13 +30,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="berita">Isi Berita</label>
-                                            <textarea class="form-control" id="berita" rows="5" placeholder="Masukkan berita" name="body_berita"></textarea>
+                                            <textarea class="form-control" id="berita" rows="5" placeholder="Masukkan berita" name="body_berita"
+                                                autocomplete="off"></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Tambah Berita</button>
                                     </form>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
