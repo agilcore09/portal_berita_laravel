@@ -33,7 +33,22 @@ $('#proses').on("submit", (e) => {
         },
 
         error: function (error) {
-            alert("isi kolom yang kosong")
+            // mendapatkan alert jika ada yang kosong
+            Swal.fire({
+                title: 'Error!',
+                text: 'lengkapi Form Kosong',
+                icon: 'warning',
+                confirmButtonText: 'Perbaiki'
+            });
+
+            console.log(error.responseJSON.body_berita[0])
+
+            if (error.responseJSON.body_berita[0]) {
+                $("#berita").addClass('is-invalid');
+            }
+            if (error.responseJSON.judul_berita[0]) {
+                $("#judul").addClass('is-invalid');
+            }
         }
 
     })
