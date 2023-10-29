@@ -16,4 +16,6 @@ route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 
 Route::get('/dashboard',  [BeritaController::class, 'showBerita']);
+
 Route::get('/tambah-berita', [BeritaController::class, 'tambahBerita']);
+Route::post('/tambah-berita', [BeritaController::class, 'storeBerita']);

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    @yield('meta')
     <title>Dashboard </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <link href="{{ asset('/lib/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ asset('/lib/assets/css/custom/css') }}"> --}}
 
 </head>
 
@@ -101,6 +102,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('/lib/admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('/lib/admin/js/demo/chart-pie-demo.js') }}"></script>
+
+    <script src="{{ asset('/lib/assets/js/custom.js') }}"></script>
 
 </body>
 

@@ -1,4 +1,7 @@
 @extends('admin.main')
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -12,9 +15,11 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <form method="POST">
+                                    <form method="POST" id="proses">
+                                        @csrf
+                                        @method('POST')
                                         <div class="form-group">
-                                            <label for="judul">Judul Berita</label>
+                                            <label>Judul Berita</label>
                                             <input type="text" class="form-control w-100" id="judul"
                                                 name="judul_berita" placeholder="Masukkan judul berita">
 
