@@ -38,7 +38,7 @@
                                         @enderror
                                         <input type="text" id="form3Example1"
                                             class="form-control @if ($errors->has('name_lengkap')) is-invalid @endif"
-                                            name="name_lengkap" />
+                                            name="name_lengkap" autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -52,7 +52,7 @@
                                         @enderror
                                         <input type="email" id="form3Example2"
                                             class="form-control @if ($errors->has('email')) is-invalid @endif"
-                                            name="email" />
+                                            name="email" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -66,8 +66,8 @@
                                     </div>
                                 @enderror
                                 <input type="text" id="form3Example3"
-                                    class="form-control @if ($errors->has('username')) is-invalid @endif"
-                                    name="username" />
+                                    class="form-control @if ($errors->has('username')) is-invalid @endif" name="username"
+                                    autocomplete="off" />
                             </div>
 
                             <!-- Password input -->
@@ -79,8 +79,8 @@
                                     </div>
                                 @enderror
                                 <input type="password" id="form3Example4"
-                                    class="form-control @if ($errors->has('password')) is-invalid @endif"
-                                    name="password" />
+                                    class="form-control @if ($errors->has('password')) is-invalid @endif" name="password"
+                                    autocomplete="off" />
                             </div>
 
                             <!-- Submit button -->

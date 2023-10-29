@@ -13,3 +13,8 @@ Route::get('/register', [UserController::class, 'registerView'])->middleware('gu
 Route::post('/register', [UserController::class, 'register'])->middleware('guest');
 
 route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+
+Route::get('/dashboard', function () {
+    return view('berita.index');
+});

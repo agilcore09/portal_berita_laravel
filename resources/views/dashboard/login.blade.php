@@ -40,7 +40,8 @@
                                         </div>
                                     @enderror
                                     <input type="text" id="form2Example1"
-                                        class="form-control @error('username') is-invalid @enderror" name="username" />
+                                        class="form-control @error('username') is-invalid @enderror" name="username"
+                                        autocomplete="off" />
                                 </div>
 
                                 <!-- Password input -->
