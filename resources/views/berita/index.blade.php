@@ -21,7 +21,15 @@
                                             <div class="card-body">
                                                 <h5 class="card-title cut-head">{{ $item->judul_berita }}</h5>
                                                 <p class="card-text cut-off">{{ $item->body_berita }}</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                            </div>
+                                            <div class="pb-2">
+                                                <ul class="pl-4">
+                                                    <a href=""><i class="fa-solid fa-eye text-success"></i></a>
+                                                    <a href=""><i class="fa-solid fa-trash text-danger"></i></a>
+                                                    <a href=""><i
+                                                            class="fa-solid fa-pen-to-square text-warning"></i></a>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
