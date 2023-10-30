@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
@@ -22,9 +23,14 @@ class BeritaController extends Controller
         }
     }
 
-    public function showBerita()
+    public function showBerita(Request $request)
     {
-        $data = BeritaModel::paginate(3);
+        if ($request->cari_judul != null) {
+            $cariBerita = BeritaModel::where('judul_berita', 'like', '%' . $request->cari_judul . '%')->first();
+            $data = $cariBerita;
+            return view('berita.index', compact('data'));
+        }
+        $data = BeritaModel::orderBy('created_at', 'ASC')->paginate(6);
         return view('berita.index', compact('data'));
     }
 
@@ -79,11 +85,30 @@ class BeritaController extends Controller
     public function updateBerita(Request $request, $slug)
     {
         $data = DB::table('berita')->where('slug', '=', $slug);
+        $images = DB::table('berita')->where('slug', '=', $slug)->first();
         if ($request->gambar == null) {
             $data->update([
                 'judul_berita' => $request->judul_berita,
+                'slug' => str_replace(' ', '-', $request->judul_berita),
                 'body_berita' => $request->body_berita
             ]);
+            Alert::success('Sukses', 'Berhasil Mengubah Berita');
+            return redirect()->to('/dashboard');
+        } else {
+            //hapus old image
+            Storage::disk('local')->delete('public/data_blog/' . $images->gambar);
+            $gambar = $request->file('gambar');
+            $nama_file = time() . "_" . $gambar->getClientOriginalName();
+            $tujuan = 'data_blog';
+            $gambar->move($tujuan, $nama_file);
+
+            $data->update([
+                'judul_berita' => $request->judul_berita,
+                'slug' => str_replace(' ', '-', $request->judul_berita),
+                'body_berita' => $request->body_berita,
+                'gambar' => $nama_file
+            ]);
+
             Alert::success('Sukses', 'Berhasil Mengubah Berita');
             return redirect()->to('/dashboard');
         }
