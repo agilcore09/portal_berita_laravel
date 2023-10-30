@@ -25,7 +25,8 @@
                                             </div>
                                             <div class="pb-2">
                                                 <ul class="pl-4">
-                                                    <a href=""><i class="fa-solid fa-eye text-success"></i></a>
+                                                    <a href="{{ url('/dashboard') }}/{{ $item->slug }}"><i
+                                                            class="fa-solid fa-eye text-success"></i></a>
                                                     <a href=""><i class="fa-solid fa-trash text-danger"></i></a>
                                                     <a href=""><i
                                                             class="fa-solid fa-pen-to-square text-warning"></i></a>
@@ -34,7 +35,9 @@
                                         </div>
                                     </div>
                                 @endforeach
-
+                                <div class="col-md-12 mt-3">
+                                    {{ $data->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

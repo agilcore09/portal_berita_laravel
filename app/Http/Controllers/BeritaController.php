@@ -22,7 +22,7 @@ class BeritaController extends Controller
 
     public function showBerita()
     {
-        $data = BeritaModel::all();
+        $data = BeritaModel::paginate(3);
         return view('berita.index', compact('data'));
     }
 
@@ -59,5 +59,10 @@ class BeritaController extends Controller
 
         Alert::success('Sukses', 'Berhasil Menambah Berita');
         return redirect()->to('/dashboard');
+    }
+
+    public function showDetail($slug)
+    {
+        return view('berita.detail');
     }
 }
