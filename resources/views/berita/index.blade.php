@@ -12,12 +12,15 @@
                             <div class="row">
 
                                 @foreach ($data as $item)
-                                    <div class="col-md-4">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="..." class="card-img-top" alt="...">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="card" style="width: 18rem; height: 25rem; ">
+                                            <div class="img-container">
+                                                <img src="{{ asset('data_blog/' . $item->gambar) }}" class="card-img-custom"
+                                                    alt="{{ $item->gambar }}">
+                                            </div>
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ $item->judul_berita }}</h5>
-                                                <p class="card-text">{{ $item->body_berita }}</p>
+                                                <h5 class="card-title cut-head">{{ $item->judul_berita }}</h5>
+                                                <p class="card-text cut-off">{{ $item->body_berita }}</p>
                                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                                             </div>
                                         </div>

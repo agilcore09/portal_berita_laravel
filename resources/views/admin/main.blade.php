@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <link href="{{ asset('/lib/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ asset('/lib/assets/css/custom/css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('/lib/assets/css/custom.css') }}">
 
 </head>
 
@@ -87,7 +87,6 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('/lib/admin/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/lib/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 

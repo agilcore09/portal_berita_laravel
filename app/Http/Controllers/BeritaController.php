@@ -53,13 +53,11 @@ class BeritaController extends Controller
         $berita = new BeritaModel();
         $berita->judul_berita = $request->judul_berita;
         $berita->body_berita = $request->body_berita;
-        $berita->slug = $request->slug;
+        $berita->slug = str_replace(' ', '-', $request->judul_berita);
         $berita->gambar = $nama_file;
         $berita->save();
 
-        return response()->json([
-            "success" => true,
-            'message' => 'Data Berhasil Di Simpan',
-        ]);
+        Alert::success('Sukses', 'Berhasil Menambah Berita');
+        return redirect()->to('/dashboard');
     }
 }
