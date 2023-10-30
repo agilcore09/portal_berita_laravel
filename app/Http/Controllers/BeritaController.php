@@ -36,7 +36,8 @@ class BeritaController extends Controller
 
     public function tambahBerita()
     {
-        return view('berita.tambah');
+        $category = DB::table('kategori')->get();
+        return view('berita.tambah', compact('category'));
     }
 
     public function storeBerita(Request $request)
@@ -64,6 +65,7 @@ class BeritaController extends Controller
         $berita->slug = str_replace(' ', '-', $request->judul_berita);
         $berita->gambar = $nama_file;
         $berita->created_at = Carbon::now();
+        $berita->kategori_id = $request->kategori;
         $berita->save();
 
         Alert::success('Sukses', 'Berhasil Menambah Berita');

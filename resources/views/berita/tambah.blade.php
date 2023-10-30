@@ -31,10 +31,11 @@
                                         <div class="form-group">
                                             <label for="category">Category</label>
                                             <br>
-                                            <select name="category">
-                                                <option value="">Pertama</option>
-                                                <option value="">kedua</option>
-                                                <option value="">Pertama</option>
+                                            <select name="kategori" class="form-control w-25">
+                                                @foreach ($category as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama_kategori }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">

@@ -13,6 +13,6 @@ class CategoryModel extends Model
 
     public function berita()
     {
-        return $this->hasMany(BeritaModel::class);
+        return $this->belongsTo(BeritaModel::class);
     }
 }
