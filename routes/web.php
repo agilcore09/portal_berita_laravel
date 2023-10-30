@@ -17,7 +17,11 @@ route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // dashboard controller
 Route::get('/home', [BeritaController::class, 'index']);
-Route::get('/dashboard',  [BeritaController::class, 'showBerita']);
 
+Route::get('/dashboard',  [BeritaController::class, 'showBerita']);
+Route::get('/dashboard/{slug}',  [BeritaController::class, 'showDetail']);
 Route::get('/tambah-berita', [BeritaController::class, 'tambahBerita']);
 Route::post('/tambah-berita', [BeritaController::class, 'storeBerita']);
+Route::get('/update-berita', [BeritaController::class, 'updateShowBerita']);
+Route::post('/update-berita', [BeritaController::class, 'updateBerita']);
+Route::get('/delete/{slug}', [BeritaController::class, 'deleteBerita']);

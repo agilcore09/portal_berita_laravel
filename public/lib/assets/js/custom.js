@@ -16,3 +16,13 @@ for (const head of cutHead) {
         head.innerHTML = cut + "..."
     }
 }
+
+// convert datetime to date
+const dateParse = $('.date-parse');
+
+for (const date of dateParse) {
+    console.log(date.innerHTML);
+    let parse = Date.parse(date.innerHTML);
+    let newDate = new Date(parse);
+    date.innerHTML = newDate.toDateString();
+}

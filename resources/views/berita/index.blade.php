@@ -13,7 +13,7 @@
 
                                 @foreach ($data as $item)
                                     <div class="col-md-4 mt-3">
-                                        <div class="card" style="width: 18rem; height: 25rem; ">
+                                        <div class="card" style="width: 18rem; height: 28rem; ">
                                             <div class="img-container">
                                                 <img src="{{ asset('data_blog/' . $item->gambar) }}" class="card-img-custom"
                                                     alt="{{ $item->gambar }}">
@@ -21,13 +21,14 @@
                                             <div class="card-body">
                                                 <h5 class="card-title cut-head">{{ $item->judul_berita }}</h5>
                                                 <p class="card-text cut-off">{{ $item->body_berita }}</p>
-
+                                                <small class="date-parse"> {{ $item->created_at }}</small>
                                             </div>
                                             <div class="pb-2">
                                                 <ul class="pl-4">
                                                     <a href="{{ url('/dashboard') }}/{{ $item->slug }}"><i
                                                             class="fa-solid fa-eye text-success"></i></a>
-                                                    <a href=""><i class="fa-solid fa-trash text-danger"></i></a>
+                                                    <a href="{{ url('/delete') }}/{{ $item->slug }}"><i
+                                                            class="fa-solid fa-trash text-danger"></i></a>
                                                     <a href=""><i
                                                             class="fa-solid fa-pen-to-square text-warning"></i></a>
                                                 </ul>

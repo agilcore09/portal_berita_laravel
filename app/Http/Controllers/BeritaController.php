@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\BeritaModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class BeritaController extends Controller
 {
@@ -55,6 +57,7 @@ class BeritaController extends Controller
         $berita->body_berita = $request->body_berita;
         $berita->slug = str_replace(' ', '-', $request->judul_berita);
         $berita->gambar = $nama_file;
+        $berita->created_at = Carbon::now();
         $berita->save();
 
         Alert::success('Sukses', 'Berhasil Menambah Berita');
@@ -63,6 +66,15 @@ class BeritaController extends Controller
 
     public function showDetail($slug)
     {
-        return view('berita.detail');
+        $data = DB::table('berita')->where('slug', '=', $slug)->first();
+        return view('berita.detail', compact('data'));
+    }
+
+    public function deleteBerita($slug)
+    {
+        DB::table('berita')->where('slug', '=', $slug)->delete();
+
+        Alert::success('Sukses', 'Berhasil Menghapus Berita');
+        return redirect()->back();
     }
 }
