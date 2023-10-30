@@ -70,10 +70,28 @@ class BeritaController extends Controller
         return view('berita.detail', compact('data'));
     }
 
+    public function updateShowBerita($slug)
+    {
+        $data = DB::table('berita')->where('slug', '=', $slug)->first();
+        return view('berita.update', compact('data'));
+    }
+
+    public function updateBerita(Request $request, $slug)
+    {
+        $data = DB::table('berita')->where('slug', '=', $slug);
+        if ($request->gambar == null) {
+            $data->update([
+                'judul_berita' => $request->judul_berita,
+                'body_berita' => $request->body_berita
+            ]);
+            Alert::success('Sukses', 'Berhasil Mengubah Berita');
+            return redirect()->to('/dashboard');
+        }
+    }
+
     public function deleteBerita($slug)
     {
         DB::table('berita')->where('slug', '=', $slug)->delete();
-
         Alert::success('Sukses', 'Berhasil Menghapus Berita');
         return redirect()->back();
     }

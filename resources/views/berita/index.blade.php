@@ -29,7 +29,7 @@
                                                             class="fa-solid fa-eye text-success"></i></a>
                                                     <a href="{{ url('/delete') }}/{{ $item->slug }}"><i
                                                             class="fa-solid fa-trash text-danger"></i></a>
-                                                    <a href=""><i
+                                                    <a href="{{ url('/') }}/update-berita/{{ $item->slug }}"><i
                                                             class="fa-solid fa-pen-to-square text-warning"></i></a>
                                                 </ul>
                                             </div>

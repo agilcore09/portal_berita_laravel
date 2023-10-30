@@ -22,6 +22,6 @@ Route::get('/dashboard',  [BeritaController::class, 'showBerita']);
 Route::get('/dashboard/{slug}',  [BeritaController::class, 'showDetail']);
 Route::get('/tambah-berita', [BeritaController::class, 'tambahBerita']);
 Route::post('/tambah-berita', [BeritaController::class, 'storeBerita']);
-Route::get('/update-berita', [BeritaController::class, 'updateShowBerita']);
-Route::post('/update-berita', [BeritaController::class, 'updateBerita']);
+Route::get('/update-berita/{slug}', [BeritaController::class, 'updateShowBerita']);
+Route::put('/update-berita/{slug}', [BeritaController::class, 'updateBerita']);
 Route::get('/delete/{slug}', [BeritaController::class, 'deleteBerita']);
