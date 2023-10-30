@@ -29,6 +29,15 @@
                                             <input type="file" class="form-control-file" id="gambar" name="gambar">
                                         </div>
                                         <div class="form-group">
+                                            <label for="category">Category</label>
+                                            <br>
+                                            <select name="category">
+                                                <option value="">Pertama</option>
+                                                <option value="">kedua</option>
+                                                <option value="">Pertama</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="berita">Isi Berita</label>
                                             <textarea class="form-control" id="berita" rows="5" placeholder="Masukkan berita" name="body_berita"
                                                 autocomplete="off"></textarea>
