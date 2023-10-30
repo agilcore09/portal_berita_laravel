@@ -8,6 +8,8 @@ for (const test of cutOff) {
     }
 }
 
+
+
 // memotong string ada di judul jika terlalu panjang
 const cutHead = $('.cut-head');
 for (const head of cutHead) {

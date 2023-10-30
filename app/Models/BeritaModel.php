@@ -14,6 +14,6 @@ class BeritaModel extends Model
 
     public function category()
     {
-        return $this->hasOne(CategoryModel::class, 'id');
+        return $this->hasOne(CategoryModel::class, 'id', 'kategori_id');
     }
 }

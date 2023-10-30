@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BeritaModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -13,15 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
-    public function index()
-    {
-        if (Auth::check()) {
-            return view('portal');
-        } else {
-            Alert::error('Warning', 'Kamu belum Login');
-            return redirect()->to('login');
-        }
-    }
+
 
     public function showBerita(Request $request)
     {
