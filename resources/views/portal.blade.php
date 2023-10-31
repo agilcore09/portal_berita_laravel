@@ -70,8 +70,7 @@
                                                 alt=""></a>
                                     </div>
                                     <div class="single_stuff_article">
-                                        <div class="single_sarticle_inner"> <a class="stuff_category"
-                                                href="#">{{ $item->category->nama_kategori }}</a>
+                                        <div class="single_sarticle_inner">
                                             <div class="stuff_article_inner"> <span class="stuff_date">Nov
                                                     <strong>17</strong></span>
                                                 <h2><a href="{{ $item->slug }}">{{ $item->judul_berita }}</a>
@@ -87,11 +86,12 @@
 
                             <div class="stuffpost_paginatinonarea wow slideInLeft">
                                 <ul class="newstuff_pagnav">
-                                    <li><a class="active_page" href="#">1</a></li>
+                                    {{-- <li><a class="active_page" href="#">1</a></li>
                                     <li><a href="#">2</a></li>
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">5</a></li> --}}
+                                    {{ $data->links() }}
                                 </ul>
                             </div>
                         </div>
