@@ -36,9 +36,13 @@
                             <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                     role="button" aria-expanded="false">Kategori</a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Politik</a></li>
-                                    <li><a href="#">Olahraga</a></li>
+
+
+                                    @foreach ($category as $cat)
+                                        <li><a
+                                                href="{{ url('/kategori') . '/' . $cat->nama_kategori }}">{{ $cat->nama_kategori }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
                         </ul>
@@ -46,11 +50,12 @@
                 </div>
             </nav>
             <form id="searchForm">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Cari Berita ...... " name="cari_berita">
                 <input type="submit" value="">
             </form>
         </div>
     </header>
+
     <section id="contentbody">
         <div class="container">
             <div class="row">
@@ -59,44 +64,61 @@
                         <div class="leftbar_content">
                             <h2>Berita Terbaru</h2>
 
-                            @foreach ($data as $item)
+                            @if (request()->cari_berita != null)
                                 <div class="single_stuff wow fadeInDown">
                                     <div class="single_stuff_img"> <a href="pages/single.html"><img
-                                                src="{{ asset('/data_blog') . '/' . $item->gambar }}"
+                                                src="{{ asset('/data_blog') . '/' . $data->gambar }}"
                                                 alt=""></a>
                                     </div>
                                     <div class="single_stuff_article">
                                         <div class="single_sarticle_inner">
                                             <div class="stuff_article_inner"> <span class="stuff_date">Nov
                                                     <strong>17</strong></span>
-                                                <h2><a href="{{ $item->slug }}">{{ $item->judul_berita }}</a>
+                                                <h2><a href="{{ $data->slug }}">{{ $data->judul_berita }}</a>
                                                 </h2>
-                                                <p class="cut-body">{{ $item->body_berita }}</p>
+                                                <p class="cut-body">{{ $data->body_berita }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @endif
+
+                            @if (request()->cari_berita == null)
+                                @foreach ($data as $item)
+                                    <div class="single_stuff wow fadeInDown">
+                                        <div class="single_stuff_img"> <a href="pages/single.html"><img
+                                                    src="{{ asset('/data_blog') . '/' . $item->gambar }}"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="single_stuff_article">
+                                            <div class="single_sarticle_inner">
+                                                <div class="stuff_article_inner"> <span class="stuff_date">Nov
+                                                        <strong>17</strong></span>
+                                                    <h2><a href="{{ $item->slug }}">{{ $item->judul_berita }}</a>
+                                                    </h2>
+                                                    <p class="cut-body">{{ $item->body_berita }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="stuffpost_paginatinonarea wow slideInLeft">
+                                    <ul class="newstuff_pagnav">
+
+                                        {{ $data->links() }}
+                                    </ul>
+                                </div>
+                            @endif
 
 
 
-                            <div class="stuffpost_paginatinonarea wow slideInLeft">
-                                <ul class="newstuff_pagnav">
-                                    {{-- <li><a class="active_page" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li> --}}
-                                    {{ $data->links() }}
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-2 col-lg-2">
                     <div class="row">
                         <div class="middlebar_content">
-                            <h2 class="yellow_bg">Berita Panas</h2>
+                            {{-- <h2 class="yellow_bg">Berita Panas</h2>
                             <div class="middlebar_content_inner wow fadeInUp">
                                 <ul class="middlebar_nav">
                                     <li> <a class="mbar_thubnail" href="#"><img
@@ -132,12 +154,15 @@
                                             class="mbar_title" href="#">Sed luctus semper odio aliquam
                                             rhoncus</a> </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                             <div class="popular_categori  wow fadeInUp">
                                 <h2 class="limeblue_bg">Kategori Populer</h2>
                                 <ul class="poplr_catgnva">
                                     @foreach ($category as $cat)
-                                        <li><a href="#">{{ $cat->nama_kategori }}</a></li>
+                                        <li>
+                                            <a
+                                                href="{{ url('/kategori') . '/' . $cat->nama_kategori }}">{{ $cat->nama_kategori }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -182,6 +207,8 @@
             </div>
         </div>
     </section>
+
+
     <footer id="footer">
         <div class="container">
             <div class="row">
