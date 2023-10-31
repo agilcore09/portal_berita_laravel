@@ -31,12 +31,11 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav custom_nav">
-                            <li class=""><a href="index.html">Home</a></li>
+                            <li class=""><a href="{{ url('/home') }}">Home</a></li>
 
                             <li class="dropdown"> <a href="{{ url('/home') }}" class="dropdown-toggle"
                                     data-toggle="dropdown" role="button" aria-expanded="false">Kategori</a>
                                 <ul class="dropdown-menu" role="menu">
-
 
                                     @foreach ($category as $cat)
                                         <li><a

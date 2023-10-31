@@ -20,6 +20,8 @@ Route::get('/home', [PortalUserController::class, 'index']);
 Route::get('/baca/{slug}', [PortalUserController::class, 'bacaBerita']);
 Route::get('/kategori/{slug}', [PortalUserController::class, 'showByCategory']);
 
+Route::post('/langganan', [PortalUserController::class, 'langganan']);
+
 // dashboard controller
 Route::get('/dashboard',  [BeritaController::class, 'showBerita']);
 Route::get('/dashboard/{slug}',  [BeritaController::class, 'showDetail']);

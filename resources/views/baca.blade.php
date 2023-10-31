@@ -27,11 +27,11 @@
                             data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span
                                 class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
                                 class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="navbar-brand" href="{{ url('/') }}"><span>Portal</span>Berita</a>
+                        <a class="navbar-brand" href="{{ url('/home') }}"><span>Portal</span>Berita</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav custom_nav">
-                            <li class=""><a href="index.html">Home</a></li>
+                            <li class=""><a href="{{ url('/home') }}">Home</a></li>
 
                             <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                     role="button" aria-expanded="false">Kategori</a>
@@ -69,9 +69,52 @@
                                 <div class="pl-3 mt-5 " style="width: 700px; margin-top: 20px">
                                     <p>{{ $data->body_berita }}</p>
                                 </div>
-                                <div>
+                                <div class="" style="padding-bottom: 20px; display: flex;">
+
                                     <a href="{{ url('/home') }}" class="btn btn-danger"
-                                        style="margin-bottom: 20px; ">Kembali</a>
+                                        style="margin-right: 10px;">Kembali</a>
+
+
+                                    <!-- Button trigger modal -->
+
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        Minat Berlangganan ?
+                                    </button>
+
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Benefit Berlangganan</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Jika kamu berlangganan Berita
+
+                                                Benefit yang kamu dapatkan adalah
+
+                                                Kamu bisa mendownload berita
+                                            </div>
+                                            <div class="modal-footer" style="display: flex;">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Nanti saja</button>
+                                                <form method="POST" action="/langganan" style="margin-left: 10px;">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-primary">Berlanganan
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

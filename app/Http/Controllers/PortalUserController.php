@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BeritaModel;
+use App\Models\LanggananModel;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
@@ -85,5 +86,16 @@ class PortalUserController extends Controller
         $beritaTerkini = DB::table('berita')->limit(3)->get();
 
         return view('category', compact("data", "category", "popularPost", "beritaTerkini"));
+    }
+
+    public function langganan()
+    {
+        $langganan = new LanggananModel();
+        $langganan->users_id = auth()->user()->id;
+        $langganan->tanggal_langganan = Carbon::now();
+        $langganan->save();
+
+        Alert::success('Sukses', 'Berhasil Langganan Berita');
+        return redirect()->back();
     }
 }
