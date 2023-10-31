@@ -21,8 +21,6 @@ class PortalUserController extends Controller
                     ->where('judul_berita', 'like', '%' . $request->cari_berita . '%')
                     ->first();
 
-
-
                 // get category
                 $category = DB::table('kategori')->get();
 
@@ -52,5 +50,40 @@ class PortalUserController extends Controller
             Alert::error('Warning', 'Kamu belum Login');
             return redirect()->to('login');
         }
+    }
+
+    public function bacaBerita($slug)
+    {
+        // catch data to detail;
+        $data = DB::table('berita')->where('slug', '=', $slug)->first();
+
+        // get category
+        $category = DB::table('kategori')->get();
+
+        // get popular post
+        $popularPost = DB::table('berita')->limit(4)->get();
+
+        //berita terkini
+        $beritaTerkini = DB::table('berita')->limit(3)->get();
+        return view('baca', compact("data", "category", "popularPost", "beritaTerkini"));
+    }
+
+    public function showByCategory($category)
+    {
+        $data = DB::table('berita')
+            ->join('kategori', 'berita.kategori_id', 'kategori.id')
+            ->where('kategori.nama_kategori', '=', $category)
+            ->paginate(2);
+
+        // get category
+        $category = DB::table('kategori')->get();
+
+        // get popular post
+        $popularPost = DB::table('berita')->limit(4)->get();
+
+        //berita terkini
+        $beritaTerkini = DB::table('berita')->limit(3)->get();
+
+        return view('category', compact("data", "category", "popularPost", "beritaTerkini"));
     }
 }

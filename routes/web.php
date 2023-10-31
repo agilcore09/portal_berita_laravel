@@ -17,7 +17,8 @@ route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // portal berita Controller for user view
 Route::get('/home', [PortalUserController::class, 'index']);
-Route::get('/berita/{slug}', [PortalUserController::class, 'bacaBerita']);
+Route::get('/baca/{slug}', [PortalUserController::class, 'bacaBerita']);
+Route::get('/kategori/{slug}', [PortalUserController::class, 'showByCategory']);
 
 // dashboard controller
 Route::get('/dashboard',  [BeritaController::class, 'showBerita']);

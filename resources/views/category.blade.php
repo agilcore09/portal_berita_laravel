@@ -49,10 +49,7 @@
                     </div>
                 </div>
             </nav>
-            <form id="searchForm">
-                <input type="text" placeholder="Cari Berita ...... " name="cari_berita">
-                <input type="submit" value="">
-            </form>
+
         </div>
     </header>
 
