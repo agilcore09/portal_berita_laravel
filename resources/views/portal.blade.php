@@ -41,10 +41,6 @@
                                     <li><a href="#">Olahraga</a></li>
                                 </ul>
                             </li>
-
-
-                            <li><a href="#">Contact</a></li>
-
                         </ul>
                     </div>
                 </div>
@@ -100,7 +96,7 @@
                 <div class="col-sm-6 col-md-2 col-lg-2">
                     <div class="row">
                         <div class="middlebar_content">
-                            <h2 class="yellow_bg">What's Hot</h2>
+                            <h2 class="yellow_bg">Berita Panas</h2>
                             <div class="middlebar_content_inner wow fadeInUp">
                                 <ul class="middlebar_nav">
                                     <li> <a class="mbar_thubnail" href="#"><img
@@ -140,12 +136,9 @@
                             <div class="popular_categori  wow fadeInUp">
                                 <h2 class="limeblue_bg">Kategori Populer</h2>
                                 <ul class="poplr_catgnva">
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">Life &amp; Style</a></li>
-                                    <li><a href="#">Games</a></li>
-                                    <li><a href="#">Politik</a></li>
-                                    <li><a href="#">Sports</a></li>
+                                    @foreach ($category as $cat)
+                                        <li><a href="#">{{ $cat->nama_kategori }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -157,52 +150,32 @@
                             <div class="single_blog_sidebar wow fadeInUp">
                                 <h2>Berita Terkini</h2>
                                 <ul class="featured_nav">
-                                    <li> <a class="featured_img" href="#"><img
-                                                src="lib/portal/images/featured_img1.jpg" alt=""></a>
-                                        <div class="featured_title"> <a class="" href="#">Sed luctus
-                                                semper odio aliquam rhoncus</a> </div>
-                                    </li>
-                                    <li> <a class="featured_img" href="#"><img
-                                                src="lib/portal/images/featured_img1.jpg" alt=""></a>
-                                        <div class="featured_title"> <a class="" href="#">Sed luctus
-                                                semper odio aliquam rhoncus</a> </div>
-                                    </li>
-                                    <li> <a class="featured_img" href="#"><img
-                                                src="lib/portal/images/featured_img1.jpg" alt=""></a>
-                                        <div class="featured_title"> <a class="" href="#">Sed luctus
-                                                semper odio aliquam rhoncus</a> </div>
-                                    </li>
+                                    @foreach ($beritaTerkini as $berita)
+                                        <li> <a class="featured_img" href="{{ $berita->slug }}"><img
+                                                    src="{{ asset('/data_blog') . '/' . $berita->gambar }}"
+                                                    alt=""></a>
+                                            <div class="featured_title"> <a class=""
+                                                    href="{{ $berita->slug }}">{{ $berita->judul_berita }}</a> </div>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                             <div class="single_blog_sidebar wow fadeInUp">
                                 <h2>Popular Posts</h2>
                                 <ul class="middlebar_nav wow">
-                                    <li> <a href="#" class="mbar_thubnail"><img alt=""
-                                                src="lib/portal/images/hot_img1.jpg"></a> <a href="#"
-                                            class="mbar_title">Sed luctus semper odio aliquam rhoncus</a> </li>
-                                    <li> <a href="#" class="mbar_thubnail"><img alt=""
-                                                src="lib/portal/images/hot_img2.jpg"></a> <a href="#"
-                                            class="mbar_title">Sed luctus semper odio aliquam rhoncus</a> </li>
-                                    <li> <a href="#" class="mbar_thubnail"><img alt=""
-                                                src="lib/portal/images/hot_img1.jpg"></a> <a href="#"
-                                            class="mbar_title">Sed luctus semper odio aliquam rhoncus</a> </li>
-                                    <li> <a href="#" class="mbar_thubnail"><img alt=""
-                                                src="lib/portal/images/hot_img1.jpg"></a> <a href="#"
-                                            class="mbar_title">Sed luctus semper odio aliquam rhoncus</a> </li>
+                                    @foreach ($popularPost as $pop)
+                                        <li>
+                                            <a href="#" class="mbar_thubnail"><img
+                                                    src="{{ asset('/data_blog') . '/' . $pop->gambar }}"></a> <a
+                                                href="{{ $pop->slug }}"
+                                                class="mbar_title">{{ $pop->judul_berita }}</a>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
-                            <div class="single_blog_sidebar wow fadeInUp">
-                                <h2>Popular Tags</h2>
-                                <ul class="poplr_tagnav">
-                                    <li><a href="#">Arts</a></li>
-                                    <li><a href="#">Games</a></li>
-                                    <li><a href="#">Nature</a></li>
-                                    <li><a href="#">Comedy</a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Tourism</a></li>
-                                    <li><a href="#">Videos</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -215,7 +188,7 @@
                 <div class="col-md-12">
                     <div class="footer_inner">
                         <p class="pull-left">Copyright &copy; 2023</p>
-                        {{-- <p class="pull-right">Developed By WpFreeware</p> --}}
+
                     </div>
                 </div>
             </div>
