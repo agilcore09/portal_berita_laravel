@@ -30,3 +30,7 @@ Route::post('/tambah-berita', [BeritaController::class, 'storeBerita']);
 Route::get('/update-berita/{slug}', [BeritaController::class, 'updateShowBerita']);
 Route::put('/update-berita/{slug}', [BeritaController::class, 'updateBerita']);
 Route::get('/delete/{slug}', [BeritaController::class, 'deleteBerita']);
+
+// dashboard cetak pdf & cetak download berita
+Route::get('/daftar-langganan', [BeritaController::class, 'viewLangganan']);
+Route::get('/cetak/{slug}', [PortalUserController::class, 'downloadBerita']);

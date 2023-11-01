@@ -86,8 +86,8 @@
                                     @endif
 
                                     @if ($langganan !== null)
-                                        <button type="submit" class="btn btn-success"><i
-                                                class="fa-solid fa-download"></i> Download Berita</button>
+                                        <a href="{{ url('/cetak') . '/' . $data->slug }}" class="btn btn-success"><i
+                                                class="fa-solid fa-download"></i> Download Berita</a>
                                     @endif
                                 </div>
 

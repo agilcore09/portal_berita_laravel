@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BeritaModel;
 use App\Models\LanggananModel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class PortalUserController extends Controller
 {
@@ -104,5 +106,13 @@ class PortalUserController extends Controller
 
         Alert::success('Sukses', 'Berhasil Langganan Berita');
         return redirect()->back();
+    }
+
+    public function downloadBerita($slug)
+    {
+        $data = DB::table('berita')->where('slug', '=', $slug)->first();
+
+        $pdf = Pdf::loadView('cetak', ["data" => $data]);
+        return $pdf->download('test.pdf');
     }
 }

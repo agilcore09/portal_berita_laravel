@@ -114,4 +114,15 @@ class BeritaController extends Controller
         Alert::success('Sukses', 'Berhasil Menghapus Berita');
         return redirect()->back();
     }
+
+    public function viewLangganan()
+    {
+        $data = DB::table('langganan')
+            ->join('users', 'langganan.users_id', 'users.id')
+            ->get();
+
+        $datas = $data->toArray();
+
+        return view('berita.langganan', compact("datas"));
+    }
 }
