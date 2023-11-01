@@ -66,7 +66,14 @@ class PortalUserController extends Controller
 
         //berita terkini
         $beritaTerkini = DB::table('berita')->limit(3)->get();
-        return view('baca', compact("data", "category", "popularPost", "beritaTerkini"));
+
+        // jika dia sudah langganan 
+        $langganan = DB::table('langganan')
+            ->join('users', 'langganan.users_id', 'users.id')
+            ->where('langganan.users_id', '=', auth()->user()->id)
+            ->get();
+
+        return view('baca', compact("data", "category", "popularPost", "beritaTerkini", "langganan"));
     }
 
     public function showByCategory($category)

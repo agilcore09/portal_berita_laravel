@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('lib/portal/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/portal/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/portal/assets/css/font.css') }}">
@@ -77,11 +78,17 @@
 
                                     <!-- Button trigger modal -->
 
-                                    <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                        Minat Berlangganan ?
-                                    </button>
+                                    @if ($langganan == null)
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            Minat Berlangganan ?
+                                        </button>
+                                    @endif
 
+                                    @if ($langganan !== null)
+                                        <button type="submit" class="btn btn-success"><i
+                                                class="fa-solid fa-download"></i> Download Berita</button>
+                                    @endif
                                 </div>
 
                                 <!-- Modal -->
